@@ -1,0 +1,40 @@
+<%- include('../layout', { title: 'Sign In' ,
+body:`
+<link rel="stylesheet" href="../../public/css/signin.css">
+<h1>Sign In</h1>
+<p>Please enter your credentials to sign in.</p>
+
+<div id="errorMessages" style="display:none;color:red;"></div>
+
+<form id="loginForm">
+  <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" placeholder="Enter Email" name="email" required>
+  </div>
+  
+  <div class="form-group">
+      <label for="psw">Password</label>
+      <div class="input-group">
+          <input type="password" class="form-control" placeholder="Enter Password" id="passwordField" name="password" required>
+          <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                  <i id="toggleIcon" class="fas fa-eye"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+
+  <div class="mt-2">
+      <button type="submit" class="btn btn-primary">Sign In</button>
+  </div>
+</form>
+
+<!-- font awesome CDN -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="../../public/js/Forms/login.js"></script>
+
+
+`
+}) %>

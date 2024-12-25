@@ -1,0 +1,93 @@
+<%- include('../layout', { title: 'Dashboard', body: `
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-10">
+              <h2 class="navbar-brand">Books-Todo-App</h2>
+          </div>
+      </div>
+     <div class="col-2">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><button id="logoutButton" class="btn btn-primary">Logout</button></a>
+        </li>
+      </ul>
+    </div>
+     </div>
+  
+    </div>
+  </nav>
+  </header>
+
+<div id="userInfo" class="text-center mt-5 p-4">
+    <h2>Welcome to the Dashboard</h2>
+</div>
+<div>
+  <div class="text-center">
+    <h2>Create Books</h2>
+    <form id="createBookForm">
+        <input type="text" id="bookName" placeholder="Enter title" required autocomplete="off" />
+        <input type="text" id="bookAuthor" placeholder="Enter Author" required  autocomplete="off"/>
+        <input type="number" id="bookYear" placeholder="Enter Year (e.g., 2024)" required autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Add Book</button>
+    </form>
+</div>
+
+    <h2 class="text-center mt-3">Books Details</h2>
+    <table id="bookTable" class="display">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Study Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="bookList">
+            <!-- Books will be populated here -->
+        </tbody>
+    </table>
+    <!-- Book Details Modal -->
+    <div class="modal fade" id="bookDetailsModal" tabindex="-1" aria-labelledby="bookDetailsLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="bookDetailsLabel">Book Details</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- <h4 id="bookTitles">Title</h4>
+                  <p id="bookAuthors">Author</p>
+                  <p id="bookYears">Year</p> -->
+                  <h4><strong>Title:</strong> <span id="bookTitles"></span></h4>
+                  <p><strong>Author:</strong> <span id="bookAuthors"></span></p>
+                  <p><strong>Years:</strong> <span id="bookYears"></span></p>
+                  <p><strong>Status:</strong> <span id="bookStatus"></span></p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- DataTables.net CSS -->
+<link rel="stylesheet" href="//cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- DataTables.net JS -->
+<script src="//cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
+
+<script  src="../../public/js/Forms/dashboard.js" type="module"></script>
+` }) %>

@@ -1,0 +1,36 @@
+    const express = require('express');
+    
+    const AuthController = require('../controllers/authController');
+    const { protect } = require('../middlewares/authMiddleware');
+    const router = express.Router();
+    const path = require('path')
+    router.get('/books-todo-app', AuthController.signupForm);
+
+    router.post('/signup', AuthController.Register);
+
+    router.get('/OtpForm', AuthController.OtpForm)
+
+    router.get('/signIn', AuthController.signInForm);
+
+    router.post('/login', AuthController.loginForm);
+
+    router.post('/verifyOtp', AuthController.verifyOtp);
+
+
+    // Protected route used as middleware of authorization
+router.get('/protected-route', protect, (req, res) => {
+    res.json({
+        username: req.user.username,
+        email: req.user.email,
+    })
+
+});
+
+router.get('/dashboard', (req, res) => {
+
+    res.render(path.join(process.cwd(), global.config.book.dashboard),  {body:"",errors: []})
+});
+
+
+
+    module.exports = router;
